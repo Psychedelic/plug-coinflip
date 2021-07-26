@@ -1,0 +1,24 @@
+diff --git a/node_modules/@dfinity/agent/lib/cjs/agent/http/index.js b/node_modules/@dfinity/agent/lib/cjs/agent/http/index.js
+index 1ae0e0b..ca2e80e 100644
+--- a/node_modules/@dfinity/agent/lib/cjs/agent/http/index.js
++++ b/node_modules/@dfinity/agent/lib/cjs/agent/http/index.js
+@@ -194,6 +194,7 @@ class HttpAgent {
+         // Apply transform for identity.
+         transformedRequest = await id.transformRequest(transformedRequest);
+         const body = cbor.encode(transformedRequest.body);
++        console.log('encoded', body);
+         const response = await this._fetch('' + new URL(`/api/v2/canister/${canister.toText()}/query`, this._host), Object.assign(Object.assign({}, transformedRequest.request), { body }));
+         if (!response.ok) {
+             throw new Error(`Server returned an error:\n` +
+diff --git a/node_modules/@dfinity/agent/lib/esm/agent/http/index.js b/node_modules/@dfinity/agent/lib/esm/agent/http/index.js
+index 3a8d799..e077dce 100644
+--- a/node_modules/@dfinity/agent/lib/esm/agent/http/index.js
++++ b/node_modules/@dfinity/agent/lib/esm/agent/http/index.js
+@@ -169,6 +169,7 @@ export class HttpAgent {
+         // Apply transform for identity.
+         transformedRequest = await id.transformRequest(transformedRequest);
+         const body = cbor.encode(transformedRequest.body);
++        console.log('encoded', body);
+         const response = await this._fetch('' + new URL(`/api/v2/canister/${canister.toText()}/query`, this._host), Object.assign(Object.assign({}, transformedRequest.request), { body }));
+         if (!response.ok) {
+             throw new Error(`Server returned an error:\n` +
