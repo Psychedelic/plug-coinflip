@@ -18,7 +18,7 @@ function App() {
   const connectToPlug = () => window?.ic?.plug?.requestConnect().then(connected => setConnected(connected));
   const createAgent = async () => {
     console.log('creating agent');
-    await window?.ic?.plug?.createAgent().then(agent => console.log(agent));
+    await window?.ic?.plug?.createAgent(['qoctq-giaaa-aaaaa-aaaea-cai']).then(agent => console.log(agent));
     console.log('created');
   }
   const getBalance = async () => {
