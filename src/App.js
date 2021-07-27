@@ -12,16 +12,16 @@ const createNNSUiActor = agent => Actor.createActor(nnsUi, {
 
 function App() {
   const [connect, setConnected] = useState(false);
-  const [plugbalance, setBalance] = useState(null);
+  const [plugbalance, setStats] = useState(null);
 
   console.log(window.ic.plug);
   const connectToPlug = () => window?.ic?.plug?.requestConnect().then(connected => setConnected(connected));
   const createAgent = async () => {
     console.log('creating agent');
-    await window?.ic?.plug?.createAgent(['qoctq-giaaa-aaaaa-aaaea-cai']).then(agent => console.log(agent));
+    await window?.ic?.plug?.createAgent(['qoctq-giaaa-aaaaa-aaaea-cai']);
     console.log('created');
   }
-  const getBalance = async () => {
+  const getStats = async () => {
     if (!window.ic.plug.agent) return;
     console.log(window.ic.plug.agent);
     const NNSUiActor = createNNSUiActor(window.ic.plug.agent);
@@ -29,7 +29,7 @@ function App() {
     try {
       const balance = await NNSUiActor.get_stats();
       console.log('get stats', balance);
-      setBalance(balance);
+      setStats(balance);
     } catch (e) {
       console.log('stats error', e);
     }
@@ -44,7 +44,7 @@ function App() {
         <button onClick={connectToPlug}>Connect</button>
         <span>{`Connected: ${connect}`}</span>
         {connect && <button onClick={createAgent}>Create Agent</button>}
-        <button onClick={getBalance}>Get Balance</button>
+        <button onClick={getStats}>Get Stats</button>
       </header>
     </div>
   );
