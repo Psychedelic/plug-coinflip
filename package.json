@@ -4,7 +4,11 @@
   "description": "",
   "keywords": [],
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "prebuild": "npm run copy:types",
+    "start": "webpack serve --mode development --env development",
+    "prestart": "npm run copy:types",
+    "copy:types": "rsync -avr .dfx/$(echo ${DFX_NETWORK:-'**'})/canisters/** --exclude='assets/' --exclude='idl/' --exclude='*.wasm' --delete src/declarations"
   },
   "devDependencies": {
     "@dfinity/agent": "",
