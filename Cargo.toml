@@ -1,0 +1,5 @@
+[workspace]
+
+members = [
+    "src/plug_coin_flip",
+]

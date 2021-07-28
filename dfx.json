@@ -1,29 +1,12 @@
 {
   "canisters": {
     "plug_coin_flip": {
-      "main": "src/plug_coin_flip/main.mo",
-      "type": "motoko"
-    },
-    "plug_coin_flip_assets": {
-      "dependencies": [
-        "plug_coin_flip"
-      ],
-      "frontend": {
-        "entrypoint": "src/plug_coin_flip_assets/src/index.html"
-      },
-      "source": [
-        "src/plug_coin_flip_assets/assets",
-        "dist/plug_coin_flip_assets/"
-      ],
-      "type": "assets"
+      "build": "cargo build --target wasm32-unknown-unknown --package plug_coin_flip --release",
+      "candid": "src/plug_coin_flip/src/plug_coin_flip.did",
+      "wasm": "target/wasm32-unknown-unknown/release/plug_coin_flip.wasm",
+      "type": "custom"
     }
   },
-  "defaults": {
-    "build": {
-      "packtool": ""
-    }
-  },
-  "dfx": "0.7.2",
   "networks": {
     "local": {
       "bind": "127.0.0.1:8000",
