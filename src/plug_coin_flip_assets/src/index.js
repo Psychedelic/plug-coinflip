@@ -3,7 +3,7 @@ import { render } from "react-dom";
 
 const MyHello = () =>  {
   return (
-    <h1>Test</h1>
+    <h1>TestY</h1>
   );
 };
 

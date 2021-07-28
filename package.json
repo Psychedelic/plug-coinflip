@@ -5,10 +5,7 @@
   "keywords": [],
   "scripts": {
     "build": "webpack",
-    "prebuild": "npm run copy:types",
-    "start": "webpack serve --mode development --env development",
-    "prestart": "npm run copy:types",
-    "copy:types": "rsync -avr .dfx/$(echo ${DFX_NETWORK:-'**'})/canisters/** --exclude='assets/' --exclude='idl/' --exclude='*.wasm' --delete src/declarations"
+    "start": "webpack serve --mode development --env development"
   },
   "devDependencies": {
     "@dfinity/agent": "",
@@ -19,11 +16,12 @@
     "process": "0.11.10",
     "stream-browserify": "3.0.0",
     "terser-webpack-plugin": "5.1.1",
+    "ts-loader": "^9.2.4",
+    "typescript": "^4.3.5",
     "util": "0.12.3",
     "webpack": "5.24.4",
     "webpack-cli": "4.5.0",
-    "ts-loader": "^9.2.4",
-    "typescript": "^4.3.5"
+    "webpack-dev-server": "^3.11.2"
   },
   "browserslist": [
     "last 2 chrome version",
