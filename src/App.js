@@ -1,14 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import { Actor } from '@dfinity/agent';
 import nnsUi from './nnsui.did';
-import { useEffect, useState } from 'react';
-import { Principal } from '@dfinity/principal';
+import { useState } from 'react';
 
-const createNNSUiActor = agent => Actor.createActor(nnsUi, {
-  agent,
-  canisterId: 'qoctq-giaaa-aaaaa-aaaea-cai'
-})
+const nnsCanisterId = 'qoctq-giaaa-aaaaa-aaaea-cai'
 
 function App() {
   const [connect, setConnected] = useState(false);
@@ -18,14 +13,18 @@ function App() {
   const connectToPlug = () => window?.ic?.plug?.requestConnect().then(connected => setConnected(connected));
   const createAgent = async () => {
     console.log('creating agent');
-    await window?.ic?.plug?.createAgent(['qoctq-giaaa-aaaaa-aaaea-cai']);
+    await window?.ic?.plug?.createAgent([nnsCanisterId]);
     console.log('created');
   }
   const getStats = async () => {
     if (!window.ic.plug.agent) return;
     console.log(window.ic.plug.agent);
-    const NNSUiActor = createNNSUiActor(window.ic.plug.agent);
-    console.log('actor', NNSUiActor);
+
+    const NNSUiActor = await window.ic.plug.createActor({
+      canisterId: nnsCanisterId,
+      interfaceFactory: nnsUi,
+    });
+
     try {
       const balance = await NNSUiActor.get_stats();
       console.log('get stats', balance);
