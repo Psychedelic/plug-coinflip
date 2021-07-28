@@ -1,12 +1,8 @@
-import { Actor, HttpAgent } from '@dfinity/agent';
-import { idlFactory as plug_coin_flip_idl, canisterId as plug_coin_flip_id } from 'dfx-generated/plug_coin_flip';
+import React from "react";
+import { render } from "react-dom";
 
-const agent = new HttpAgent();
-const plug_coin_flip = Actor.createActor(plug_coin_flip_idl, { agent, canisterId: plug_coin_flip_id });
+const MyHello = () =>  (
+  <h1>Test</h1>
+);
 
-document.getElementById("clickMeBtn").addEventListener("click", async () => {
-  const name = document.getElementById("name").value.toString();
-  const greeting = await plug_coin_flip.greet(name);
-
-  document.getElementById("greeting").innerText = greeting;
-});
+render(<MyHello />, document.getElementById("app"));

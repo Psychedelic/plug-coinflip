@@ -5,6 +5,19 @@
       "candid": "src/plug_coin_flip/src/plug_coin_flip.did",
       "wasm": "target/wasm32-unknown-unknown/release/plug_coin_flip.wasm",
       "type": "custom"
+    },
+    "plug_coin_flip_assets": {
+      "dependencies": [
+        "plug_coin_flip"
+      ],
+      "frontend": {
+        "entrypoint": "src/plug_coin_flip_assets/src/index.html"
+      },
+      "source": [
+        "src/plug_coin_flip_assets/assets",
+        "dist/plug_coin_flip_assets/"
+      ],
+      "type": "assets"
     }
   },
   "networks": {

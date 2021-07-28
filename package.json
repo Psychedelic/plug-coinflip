@@ -17,6 +17,18 @@
     "terser-webpack-plugin": "5.1.1",
     "util": "0.12.3",
     "webpack": "5.24.4",
-    "webpack-cli": "4.5.0"
+    "webpack-cli": "4.5.0",
+    "ts-loader": "^9.2.4",
+    "typescript": "^4.3.5"
+  },
+  "browserslist": [
+    "last 2 chrome version",
+    "last 2 firefox version",
+    "last 2 safari version",
+    "last 2 edge version"
+  ],
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
