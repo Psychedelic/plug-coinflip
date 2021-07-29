@@ -13,11 +13,10 @@ import TitleImg from '../assets/title-image.png';
 import '../assets/main.css';
 
 import { COIN_TYPES } from './consts';
-import ConnectionBadge from './components/ConnectionBadge';
-import CoinSelector from './components/CoinSelector';
+import { ConnectionBadge, CoinSelector, Picker } from './components';
 
 const App = () =>  {
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState(true);
   const [principalId, setPrincipalId] = useState('');
   const [selectedCoin, setSelectedCoin] = useState('');
 
@@ -28,13 +27,19 @@ const App = () =>  {
         <img className='title-image' src={TitleImg} />
         <ConnectionBadge principalId={principalId}/>
         <Router>
-          { auth ? <Redirect to="/" /> : <Redirect to="/auth" /> }
+          { auth ? <Redirect to="/pick" /> : <Redirect to="/auth" /> }
           <Route path="/auth">
             <CoinSelector
               selected={selectedCoin}
               setSelected={setSelectedCoin}
             />
             <h1>Connect to Start Playing</h1>
+          </Route>
+          <Route path="/pick">
+            <Picker 
+              selected={selectedCoin}
+              setSelected={setSelectedCoin}
+            />
           </Route>
         </Router>
       </div>
