@@ -1,0 +1,119 @@
+.coin {
+  border: 3px solid white;
+  position: relative;
+  box-sizing: border-box;
+  padding: 40px 12px;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+.coin .blur {
+  z-index: -1;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  filter: blur(20px);
+}
+
+.coin.heads {
+  background: linear-gradient(174.51deg, #900AE6 4.38%, #060047 95.76%);
+}
+
+.coin.heads .blur {
+  background: linear-gradient(174.51deg, #900AE6 4.38%, #060047 95.76%);
+}
+
+.coin.heads .face-tails {
+  display: none;
+}
+
+.coin.tails {
+  background: linear-gradient(174.51deg, #A5008A 4.38%, #EE0060 95.76%);
+}
+
+.coin.tails .blur {
+  background: linear-gradient(174.51deg, #A5008A 4.38%, #EE0060 95.76%);
+}
+
+.coin.tails .face-heads {
+  display: none;
+}
+
+.glitched {
+  --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 1%));
+  --shadow-primary: hsl(var(--shadow-primary-hue), 90%, 50%);
+  --primary-hue: 0;
+  --primary-lightness: 50;
+  --color: hsl(0, 0%, 100%);
+  --font-size: 26px;
+  --shadow-primary-hue: 180;
+  --label-size: 9px;
+  --shadow-secondary-hue: 60;
+  --shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%);
+  --clip: polygon(0 0, 100% 0, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 70%);
+  --border: 4px;
+  --shimmy-distance: 5;
+  --clip-one: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
+  --clip-two: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
+  --clip-three: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
+  --clip-four: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+  --clip-five: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+  --clip-six: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
+  --clip-seven: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
+  animation: glitch 2s infinite;
+  z-index: 200;
+  position: absolute;
+}
+
+.delay {
+  animation-delay: 0.5s;
+}
+
+.coin.loading {
+  animation: loading-color 1s infinite;
+}
+
+.coin.loading .blur {
+  animation: loading-color 1s infinite;
+}
+
+.coin.loading .face-tails {
+  animation: loading-dissapear 1s infinite;
+}
+
+.coin.loading .face-heads {
+  animation: loading-dissapear 1s infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes loading-dissapear {
+  0% {
+    z-index: 10;
+  }
+
+  50% {
+    z-index: 10;
+  }
+
+  100% {
+    position: absolute;
+    z-index: -100;
+  }
+}
+
+@keyframes loading-color {
+  0% {
+    background: linear-gradient(174.51deg, #A5008A 4.38%, #EE0060 95.76%);
+  }
+
+  100% {
+    background: linear-gradient(174.51deg, #900AE6 4.38%, #060047 95.76%);
+  }
+}

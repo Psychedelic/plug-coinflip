@@ -15,43 +15,6 @@ h1 {
   line-height: 20px;
 }
 
-.connection-badge {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: default;
-  font-size: 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.connection-badge .not-connected {
-  background: rgba(255, 74, 74, 0.2);
-}
-
-.connection-badge .not-connected > .connection-dot {
-  background: #FF4A4A;
-}
-
-.principal-badge {
-  margin-left: 24px;
-  background: rgba(74, 255, 136, 0.2);
-  padding: 5px 12px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.principal-badge > .connection-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 10px;
-  margin-right: 7px;
-  background: #4AFF67;
-}
-
 .content {
   height: 100vh;
   display: flex;
@@ -116,4 +79,64 @@ h1 {
 
 .gradient {
   background: linear-gradient(180deg, #F103C6 0%, #5000BE 100%);
+}
+@keyframes glitch {
+  0% {
+    clip-path: var(--clip-one);
+  }
+  2%, 8% {
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+  6% {
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  9% {
+    clip-path: var(--clip-two);
+    transform: translate(0, 0);
+  }
+  10% {
+    clip-path: var(--clip-three);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  13% {
+    clip-path: var(--clip-three);
+    transform: translate(0, 0);
+  }
+  14%, 21% {
+    clip-path: var(--clip-four);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  25% {
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  30% {
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+  35%, 45% {
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * -1%));
+  }
+  40% {
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * 1%));
+  }
+  50% {
+    clip-path: var(--clip-six);
+    transform: translate(0, 0);
+  }
+  55% {
+    clip-path: var(--clip-seven);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  60% {
+    clip-path: var(--clip-seven);
+    transform: translate(0, 0);
+  }
+  31%, 61%, 100% {
+    clip-path: var(--clip-four);
+  }
 }
