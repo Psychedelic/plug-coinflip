@@ -1,34 +1,74 @@
+@font-face {
+  font-family: Iceland;
+  src: url('./Iceland.ttf');
+}
+
 body {
-    font-family: sans-serif;
-    font-size: 1.5rem;
+  background: #1D111B;
+  font-family: Iceland;
+  color: white;
+  margin: 0;
 }
 
-img {
-    max-width: 50vw;
-    max-height: 25vw;
-    display: block;
-    margin: auto;
-}
-section {
-    display: flex;
-    flex-flow: row wrap;
-    max-width: 40vw;
-    margin: auto;
-    align-items: baseline;
+h1 {
+  font-size: 50px;
+  line-height: 20px;
 }
 
-#clickMeBtn {
-    padding: 5px 20px;
-    margin: 10px auto;
-    float: right;
+.connection-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: default;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-#greeting {
-    margin: 10px auto;
-    padding: 10px 60px;
-    border: 1px solid #222;
+.connection-badge .not-connected {
+  background: rgba(255, 74, 74, 0.2);
 }
 
-#greeting:empty {
-    display: none;
+.connection-badge .not-connected > .connection-dot {
+  background: #FF4A4A;
+}
+
+.principal-badge {
+  margin-left: 24px;
+  background: rgba(74, 255, 136, 0.2);
+  padding: 5px 12px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.principal-badge > .connection-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  margin-right: 7px;
+  background: #4AFF67;
+}
+
+.content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-image {
+  position: absolute;
+  top: 50px;
+}
+
+.background {
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  height: 90vh;
+  bottom: 0;
 }
