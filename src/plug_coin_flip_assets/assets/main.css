@@ -45,6 +45,12 @@ h1 {
   justify-content: center;
   align-items: center;
   font-size: 24px;
+  transition: 1s opacity ease;
+}
+
+.button-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .button-border {
@@ -85,6 +91,10 @@ h1 {
   margin-bottom: 60px;
 }
 
+.picker .button {
+  width: fit-content;
+  margin: 60px auto 0;
+}
 @keyframes glitch {
   0% {
     clip-path: var(--clip-one);
