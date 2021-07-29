@@ -36,6 +36,22 @@ h1 {
   bottom: 0;
 }
 
+.button-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container .glitched {
+  opacity: 0;
+}
+
+.button-container:hover > .glitched {
+  opacity: 1;
+}
+
 .button {
   height: 42px;
   border-radius: 10px;
@@ -91,10 +107,15 @@ h1 {
   margin-bottom: 60px;
 }
 
+.delay-2 {
+  animation-delay: 0.75s !important;
+}
+
 .picker .button {
   width: fit-content;
   margin: 60px auto 0;
 }
+
 @keyframes glitch {
   0% {
     clip-path: var(--clip-one);
