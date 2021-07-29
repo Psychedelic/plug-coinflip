@@ -36,6 +36,10 @@ h1 {
   bottom: 0;
 }
 
+.pick-title {
+  margin-bottom: 60px;
+}
+
 @keyframes glitch {
   0% {
     clip-path: var(--clip-one);
