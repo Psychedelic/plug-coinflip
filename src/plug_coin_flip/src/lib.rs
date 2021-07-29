@@ -37,6 +37,16 @@ fn get(name: String) -> Profile {
         .unwrap_or_else(|| Profile::default())
 }
 
+fn generate_random() -> bool {
+    let nanos = ic_cdk::api::time() / 1000;
+
+    if (nanos % 2) == 0 {
+        return true
+    } else {
+        return false
+    }
+}
+
 #[update(name = "coinFlip")]
 fn coin_flip(guess: bool) -> bool {
     let id = ic_cdk::caller();
@@ -51,7 +61,7 @@ fn coin_flip(guess: bool) -> bool {
     current_profile.attempts = current_profile.attempts + 1;
     current_profile.principal = principal_id.to_string().clone();
 
-    let guess_result = false == guess;
+    let guess_result = generate_random() == guess;
 
     if guess_result {
         current_profile.score = current_profile.score + 1;
