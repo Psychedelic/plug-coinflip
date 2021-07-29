@@ -16,8 +16,9 @@ import '../assets/main.css';
 import { COIN_TYPES } from './consts';
 import ConnectionBadge from './components/ConnectionBadge';
 import CoinSelector from './components/CoinSelector';
+import Leaderboard from './views/leaderboard/index';
 
-const App = () =>  {
+const App = () => {
   const [auth, setAuth] = useState(false);
   const [principalId, setPrincipalId] = useState('');
   const [selectedCoin, setSelectedCoin] = useState('');
@@ -27,8 +28,8 @@ const App = () =>  {
       <img className='background' src={Background} />
       <div className='content'>
         <img className='title-image' src={TitleImg} />
-        <ConnectionBadge principalId={principalId} />
         <Router>
+          <ConnectionBadge principalId={principalId} />
           {auth ? <Redirect to="/" /> : <Redirect to="/auth" />}
           <Route path="/auth">
             <CoinSelector
@@ -38,6 +39,9 @@ const App = () =>  {
             <h1>Connect to Start Playing</h1>
             <Button value="Play Again" />
             <Button value="View Results" border={false} />
+          </Route>
+          <Route path="/leaderboard">
+            <Leaderboard />
           </Route>
         </Router>
       </div>

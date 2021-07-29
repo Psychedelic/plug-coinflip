@@ -11,8 +11,11 @@ body {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 60px;
   line-height: 20px;
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
 }
 
 .content {
@@ -52,12 +55,17 @@ h1 {
   padding: 0 18px;
 }
 
-.leaderboard-row {
-  width: 100%;
-  max-width: 340px;
+.leaderboard-container {
+  display: flex;
+  flex-direction: column;
 }
 
-.leaderboard-item {
+.leaderboard-container > .row {
+  width: 100%;
+  display: flex;
+}
+
+.leaderboard-container > .row > .item {
   width: 85px;
   height: 35px;
   border: 1px solid #FFFFFF;
@@ -69,17 +77,26 @@ h1 {
   margin: 5px 7px;
 }
 
-.leaderboard-item-big {
+.leaderboard-container > .row > .header {
+  background: linear-gradient(180deg, #F103C6 0%, #5000BE 100%);
+  margin-bottom: 7px;
+  border: none;
+  padding: 1px;
+}
+
+.leaderboard-container > .row > .big {
   width: 192px;
+}
+
+.leaderboard-title{
+  padding-bottom: 24px;
 }
 
 .purple {
   background: #7201C0;
 }
 
-.gradient {
-  background: linear-gradient(180deg, #F103C6 0%, #5000BE 100%);
-}
+
 @keyframes glitch {
   0% {
     clip-path: var(--clip-one);
