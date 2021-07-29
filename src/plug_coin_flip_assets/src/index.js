@@ -9,13 +9,13 @@ import {
 
 import Background from '../assets/background.jpeg';
 import TitleImg from '../assets/title-image.png';
-import Button from './components/Button.js';
 import '../assets/main.css';
 
-import { COIN_TYPES } from './consts';
+import ConnectionBadge from './components/ConnectionBadge';
+import Leaderboard from './views/leaderboard/index';
 import { ConnectionBadge, CoinSelector, Picker } from './components';
 
-const App = () =>  {
+const App = () => {
   const [auth, setAuth] = useState(true);
   const [principalId, setPrincipalId] = useState('');
   const [selectedCoin, setSelectedCoin] = useState('');
@@ -25,20 +25,17 @@ const App = () =>  {
       <img className='background' src={Background} />
       <div className='content'>
         <img className='title-image' src={TitleImg} />
-        <ConnectionBadge principalId={principalId} />
         <Router>
-          { auth ? <Redirect to="/pick" /> : <Redirect to="/auth" /> }
+          <ConnectionBadge principalId={principalId} />
+          {auth ? <Redirect to="/pick" /> : <Redirect to="/auth" />}
           <Route path="/auth">
-            <CoinSelector
-              selected={selectedCoin}
-              setSelected={setSelectedCoin}
-            />
             <h1>Connect to Start Playing</h1>
-            <Button value="Play Again" />
-            <Button value="View Results" border={false} />
+          </Route>
+          <Route path="/leaderboard">
+            <Leaderboard />
           </Route>
           <Route path="/pick">
-            <Picker 
+            <Picker
               selected={selectedCoin}
               setSelected={setSelectedCoin}
             />
@@ -48,5 +45,6 @@ const App = () =>  {
     </div>
   );
 };
+
 
 render(<App />, document.getElementById("app"));
