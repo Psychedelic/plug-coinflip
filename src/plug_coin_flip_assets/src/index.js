@@ -7,15 +7,19 @@ import {
   Link,
   Redirect,
 } from "react-router-dom";
-import ConnectionBadge from './components/ConnectionBadge';
 
 import Background from '../assets/background.jpeg';
 import TitleImg from '../assets/title-image.png';
 import '../assets/main.css';
 
+import { COIN_TYPES } from './consts';
+import ConnectionBadge from './components/ConnectionBadge';
+import CoinSelector from './components/CoinSelector';
+
 const App = () =>  {
   const [auth, setAuth] = useState(false);
   const [principalId, setPrincipalId] = useState('');
+  const [selectedCoin, setSelectedCoin] = useState('');
 
   return (
     <div className='app'>
@@ -26,6 +30,10 @@ const App = () =>  {
         <Router>
           { auth ? <Redirect to="/" /> : <Redirect to="/auth" /> }
           <Route path="/auth">
+            <CoinSelector
+              selected={selectedCoin}
+              setSelected={setSelectedCoin}
+            />
             <h1>Connect to Start Playing</h1>
           </Route>
         </Router>
