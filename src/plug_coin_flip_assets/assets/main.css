@@ -96,6 +96,9 @@ h1 {
   background: #7201C0;
 }
 
+.pick-title {
+  margin-bottom: 60px;
+}
 
 @keyframes glitch {
   0% {
