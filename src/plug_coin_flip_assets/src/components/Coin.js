@@ -4,7 +4,7 @@ import { COIN_TYPES } from '../consts';
 
 import '../../assets/coin.css';
 
-const Coin = ({ status, glitched, delay }) => {
+const Coin = ({ status, glitched, delay, className, onClick }) => {
   if (status === COIN_TYPES.LOADING) {
     return (
       <div className="coin-container">
@@ -40,7 +40,10 @@ const Coin = ({ status, glitched, delay }) => {
   }
 
   return (
-    <div className="coin-container">
+    <div
+      className={`coin-container ${className ? className : ''}`}
+      onClick={onClick}
+    >
       { glitched  && (
           <div className={`coin ${glitched} ${delay ? 'delay' : ''} ${glitched ? 'glitched' : ''}`}>
           <div className="blur" />
