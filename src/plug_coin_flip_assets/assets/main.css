@@ -72,3 +72,48 @@ h1 {
   height: 90vh;
   bottom: 0;
 }
+
+.button {
+  height: 42px;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.button-border {
+  border: 1.6px solid #FFFFFF;
+  padding: 0 18px;
+}
+
+.leaderboard-row {
+  width: 100%;
+  max-width: 340px;
+}
+
+.leaderboard-item {
+  width: 85px;
+  height: 35px;
+  border: 1px solid #FFFFFF;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  margin: 5px 7px;
+}
+
+.leaderboard-item-big {
+  width: 192px;
+}
+
+.purple {
+  background: #7201C0;
+}
+
+.gradient {
+  background: linear-gradient(180deg, #F103C6 0%, #5000BE 100%);
+}
