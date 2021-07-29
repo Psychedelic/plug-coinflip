@@ -80,6 +80,11 @@ h1 {
 .gradient {
   background: linear-gradient(180deg, #F103C6 0%, #5000BE 100%);
 }
+
+.pick-title {
+  margin-bottom: 60px;
+}
+
 @keyframes glitch {
   0% {
     clip-path: var(--clip-one);

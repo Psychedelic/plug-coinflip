@@ -18,7 +18,7 @@
 }
 
 .coin-container.selected {
-  transform: translateY(-40px);
+  transform: translateY(-30px);
 }
 
 .coin-container.disabled {
