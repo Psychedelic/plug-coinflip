@@ -2,7 +2,6 @@ import React from 'react';
 import clsx from 'clsx';
 import shortPrincipal from '../../utils/short-principal';
 
-
 const DATA = [
   {
     principal: "siay4-pltgm-xo7wa-sl2xv-dwrtw-jobvb-2epkw-dpvin-girai-pe7ts-mae",
@@ -80,9 +79,7 @@ const DATA = [
 const Leaderboard = () => {
   return (
     <div className='leaderboard-container'>
-
       <h1 className='leaderboard-title'>Leaderboard</h1>
-
       <div className='row'>
         <div className='item header'>
           Rank
@@ -100,10 +97,9 @@ const Leaderboard = () => {
           Ratio
         </div>
       </div>
-
       {
-        DATA.sort((a, b) => a.rank - b.rank).map(score => (
-          <div className='row'>
+        DATA.sort((a, b) => a.rank - b.rank).map((score, index) => (
+          <div className='row' key={`${index}${score.principal}`}>
             <div className={clsx('item', score.user && 'purple')}>
               {score.rank}
             </div>
@@ -122,7 +118,6 @@ const Leaderboard = () => {
           </div>
         ))
       }
-
     </div>
   );
 };

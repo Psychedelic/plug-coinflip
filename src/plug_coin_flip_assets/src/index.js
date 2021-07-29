@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { render } from 'react-dom';
+
 import {
   HashRouter as Router,
   Switch,
@@ -12,8 +13,8 @@ import TitleImg from '../assets/title-image.png';
 import '../assets/main.css';
 
 import ConnectionBadge from './components/ConnectionBadge';
-import Leaderboard from './views/leaderboard/index';
-import { ConnectionBadge, CoinSelector, Picker } from './components';
+import { ConnectionBadge, CoinSelector } from './components';
+import { Picker, Leaderboard, Result } from './views';
 
 const App = () => {
   const [auth, setAuth] = useState(true);
@@ -38,6 +39,12 @@ const App = () => {
             <Picker
               selected={selectedCoin}
               setSelected={setSelectedCoin}
+            />
+          </Route>
+          <Route path="/result">
+            <Result
+              guess={selectedCoin}
+              setGuess={setSelectedCoin}
             />
           </Route>
         </Router>

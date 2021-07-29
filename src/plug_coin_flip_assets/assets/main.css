@@ -19,20 +19,18 @@ h1 {
 }
 
 .content {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .title-image {
-  position: absolute;
-  top: 50px;
+  margin-top: 10px;
 }
 
 .background {
-  position: absolute;
+  position: fixed;
   z-index: -1;
   width: 100vw;
   height: 90vh;
@@ -129,6 +127,29 @@ h1 {
 .picker .button {
   width: fit-content;
   margin: 60px auto 0;
+}
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result-container .coin-container {
+  margin-bottom: 10px;
+}
+
+.result-container .button-container {
+  margin-top: 34px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-link:visited {
+  color: white;
 }
 
 @keyframes glitch {
