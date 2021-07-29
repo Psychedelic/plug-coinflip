@@ -4,7 +4,7 @@ import { COIN_TYPES } from '../consts';
 
 import '../../assets/coin.css';
 
-const Coin = ({ status, glitched }) => {
+const Coin = ({ status, glitched, delay }) => {
   if (status === COIN_TYPES.LOADING) {
     return (
       <div className="coin-container">
@@ -42,7 +42,7 @@ const Coin = ({ status, glitched }) => {
   return (
     <div className="coin-container">
       { glitched  && (
-        <div className={`coin ${glitched} ${glitched ? 'glitched' : ''}`}>
+          <div className={`coin ${glitched} ${delay ? 'delay' : ''} ${glitched ? 'glitched' : ''}`}>
           <div className="blur" />
           <div className="face-heads">
             HEAD
