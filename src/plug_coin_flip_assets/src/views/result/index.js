@@ -28,22 +28,25 @@ const Result = ({ guess, setGuess }) => {
 
   return (
     <div className="result-container">
-      <h1 className="pick-title">{title}</h1>
+      <h1>{title}</h1>
       <Coin
         status={result}
         glitched={result}
       />
-      <Button
-        value="Play Again"
-        disabled={disabledButtons}
-        onClick={handlePlayAgain}
-      />
-      <Button
-        border={false}
-        value="View Results"
-        disabled={disabledButtons}
-        onClick={handleResults}
-      />
+      <div style={{ marginTop: 35 }}>
+        <Button
+          value="Play Again"
+          disabled={disabledButtons}
+          onClick={handlePlayAgain}
+        />
+        <Button
+          border={false}
+          value="View Results"
+          disabled={disabledButtons}
+          onClick={handleResults}
+        />
+      </div>
+
     </div>
   );
 }

@@ -7,7 +7,7 @@ const Picker = ({ selected, setSelected }) => {
 
   return (
     <div className="picker">
-      <h1 className="pick-title">Pick your coin face</h1>
+      <h1>Pick your coin face</h1>
       <CoinSelector selected={selected} setSelected={setSelected} />
       <Button
         value="Flip coin"

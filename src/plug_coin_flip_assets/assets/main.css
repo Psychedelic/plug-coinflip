@@ -18,7 +18,7 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 h1 {
@@ -27,6 +27,7 @@ h1 {
   font-style: normal;
   font-weight: normal;
   text-align: center;
+  margin-bottom: 75px;
 }
 
 .content {
@@ -37,7 +38,7 @@ h1 {
 }
 
 .title-image {
-  margin-top: 10px;
+  margin: 90px 0 50px 0;
 }
 
 .background {
@@ -105,6 +106,7 @@ h1 {
   justify-content: center;
   align-items: center;
   font-size: 20px;
+  background: #1D111B;
   margin: 5px 7px;
 }
 
@@ -119,16 +121,8 @@ h1 {
   width: 192px;
 }
 
-.leaderboard-title{
-  padding-bottom: 24px;
-}
-
 .purple {
-  background: #7201C0;
-}
-
-.pick-title {
-  margin-bottom: 60px;
+  background: #7201C0 !important;
 }
 
 .delay-2 {
@@ -146,12 +140,8 @@ h1 {
   align-items: center;
 }
 
-.result-container .coin-container {
-  margin-bottom: 10px;
-}
-
 .result-container .button-container {
-  margin-top: 34px;
+  margin-top: 25px;
 }
 
 .nav-link {

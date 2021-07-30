@@ -33,20 +33,23 @@ const App = () => {
 
   useEffect(async () => {
 
-    if(window.ic?.plug){
-      const connected = await window.ic.plug.isConnected();
-      setConnected(connected);
-    }
-
-    //if (!window.ic?.plug?.agent) {
-    //  window.location.hash = '/connect';
+    //if (window.ic?.plug) {
+    //  const connected = await window.ic.plug.isConnected();
+    //  setConnected(connected);
     //}
+
+    if (!window.ic?.plug?.agent) {
+      window.location.hash = '/connect';
+    }
   }, []);
 
   useEffect(async () => {
     if (connected) {
-      const principal = await window.ic.plug.agent.getPrincipal().toText();
-      setPrincipalId(principal);
+      const principal = await window.ic.plug.agent.getPrincipal();
+
+      if (principal) {
+        setPrincipalId(principal.toText());
+      }
     }
   }, [connected]);
 
