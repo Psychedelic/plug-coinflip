@@ -55,6 +55,8 @@ function initCanisterIds() {
       JSON.stringify(canisters[canister][network]);
   }
 
+  parsedCanisters["process.env.DFX_NETWORK"] = JSON.stringify(network);
+
   return parsedCanisters;
 }
 
