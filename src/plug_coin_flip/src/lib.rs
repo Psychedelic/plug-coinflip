@@ -116,5 +116,8 @@ fn leaderboard() -> std::vec::Vec<Profile> {
             other => other,
         }
     });
+
+    profiles_vec.truncate(10);
+
     return profiles_vec;
 }
