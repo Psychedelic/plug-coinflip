@@ -27,10 +27,10 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.3.tgz#90420f9f9c6d3987f176a19a7d8e764271a2f55d"
   integrity sha512-Fxt+AfXgjMoin2maPIYzFZnQjAXjAL0PHscM5pRTtatFqB+vZxAM9tLp2Optnuw3QOQC40jTNeGYFOMvyf7v9g==
 
-"@psychedelic/plug-connect@0.1.2":
-  version "0.1.2"
-  resolved "https://npm.pkg.github.com/download/@psychedelic/plug-connect/0.1.2/d514327ef8f062f95a0c38dd3ddbcf53dc03141214233fb58ca46b95ebbd4ad9#1ecbf7d6308ad63ef38777a7c917beb55118698e"
-  integrity sha512-bmIZMbqwT+Fdz9637ZF4iSw1AWik2Hb8CIxpSeQ+eOOHS6KjQgF612LxiwMEJLj0vfEOFPpDIt/yN8VzNTVxzA==
+"@psychedelic/plug-connect@0.1.3":
+  version "0.1.3"
+  resolved "https://npm.pkg.github.com/download/@psychedelic/plug-connect/0.1.3/6acc475c38644874404c10d557b73c49956e65543521adcccd3692775f7a190f#214b6ba9db1cb848529607083cc40c6a119b261a"
+  integrity sha512-dsnyu17MxlmG0B5uuynZgFwxKuWlg3ZCQJZ7mWcYSoT5dUqIbVfp+i/+7rDYj9xhpuI+J+zIylAAMdiNNjuhTw==
   dependencies:
     "@stitches/react" "^0.2.3"
 

@@ -32,28 +32,21 @@ const App = () => {
   }
 
   useEffect(async () => {
-    if (window.ic?.plug) {
-      console.log('Plug installed!');
-      let isConnected = await window.ic.plug.isConnected();
-      console.log('isConnected', isConnected);
 
-      // agent lost omegaKEK
-      if (isConnected && !window.ic?.plug?.agent) {
-        isConnected = false;
-        window.location.hash = '/connect';
-      }
+    if(window.ic?.plug){
+      const connected = await window.ic.plug.isConnected();
+      setConnected(connected);
+    }
 
-      setConnected(isConnected);
-    }
-    else {
-      console.log('Plug not installed monkaW');
-    }
+    //if (!window.ic?.plug?.agent) {
+    //  window.location.hash = '/connect';
+    //}
   }, []);
 
   useEffect(async () => {
     if (connected) {
-      const principal = await window.ic.plug.agent.getPrincipal();
-      console.log('principal', principal);
+      const principal = await window.ic.plug.agent.getPrincipal().toText();
+      setPrincipalId(principal);
     }
   }, [connected]);
 

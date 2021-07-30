@@ -7,8 +7,8 @@ const Connect = ({ handleConnect }) => {
       <h1>Connect to Start Playing</h1>
 
       <PlugConnect
-        host="https://mainnet.dfinity.network"
-        whitelist={['canisterid-1', 'canisterid-2']}
+        host="https://mainnet.dfinity.network/"
+        whitelist={[]}
         dark
         onConnectCallback={handleConnect}
       />
