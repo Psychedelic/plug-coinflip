@@ -42,7 +42,7 @@ const App = () => {
         getAudioInstance={(instance) => setAudioInstance(instance)}
         audioLists={[{ musicSrc: synthwave }]}
         defaultPlayMode="singleLoop"
-        preload
+        autoPlay={false}
       />
       <div
         onClick={() => { setAudioPlaying(!audioPlaying) }}
