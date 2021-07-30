@@ -8,6 +8,7 @@ type Profile_2 = record {
 type Profile = Profile_2;
 
 service : {
+    "getRank": () -> (opt nat64) query;
     "getSelf": () -> (Profile) query;
     "get": (text) -> (Profile) query;
     "leaderboard": () -> (vec Profile) query;

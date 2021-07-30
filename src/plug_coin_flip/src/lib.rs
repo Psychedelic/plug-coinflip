@@ -15,15 +15,41 @@ struct Profile {
     pub ratio: u32,
 }
 
+#[query(name = "getRank")]
+fn get_rank() -> Option<usize> {
+    let id = ic_cdk::caller();
+    let profile_store = storage::get::<ProfileStore>();
+    let profile = profile_store
+        .get(&id)
+        .cloned()
+        .unwrap_or_else(|| Profile::default());
+
+    let mut profiles_vec : Vec<Profile> = profile_store
+        .values()
+        .cloned()
+        .collect();
+
+    profiles_vec.sort_by(|a, b| {
+        match b.ratio.cmp(&a.score) {
+            Ordering::Equal => b.score.cmp(&a.ratio),
+            other => other,
+        }
+    });
+
+    return profiles_vec.iter().position(|s| s.principal == profile.principal);
+}
+
 #[query(name = "getSelf")]
 fn get_self() -> Profile {
     let id = ic_cdk::caller();
     let profile_store = storage::get::<ProfileStore>();
 
-    profile_store
+    let profile = profile_store
         .get(&id)
         .cloned()
-        .unwrap_or_else(|| Profile::default())
+        .unwrap_or_else(|| Profile::default());
+
+    return profile;
 }
 
 #[query]
@@ -85,8 +111,8 @@ fn leaderboard() -> std::vec::Vec<Profile> {
         .collect();
 
     profiles_vec.sort_by(|a, b| {
-        match b.ratio.cmp(&a.ratio) {
-            Ordering::Equal => b.score.cmp(&a.score),
+        match b.ratio.cmp(&a.score) {
+            Ordering::Equal => b.score.cmp(&a.ratio),
             other => other,
         }
     });
