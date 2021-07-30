@@ -15,31 +15,41 @@ const ConnectionBadge = ({ principalId }) => {
 
   return (
     <div className="connection-badge">
-      { pathname === '/leaderboard' ? (
-        <NavLink
-          className="nav-link"
-          to={{
-            pathname: "/pick",
-          }}
-        >
-          Home
-        </NavLink>
+      <div className="connection-row">
+        { pathname === '/leaderboard' ? (
+          <NavLink
+            className="nav-link"
+            to={{
+              pathname: "/pick",
+            }}
+          >
+            Home
+          </NavLink>
         ) : (
-        <NavLink
-          className="nav-link"
-          to={{
-            pathname: "/leaderboard",
-          }}
-        >
-          Leaderboard
-        </NavLink>
-      )}
-      <div className={`principal-badge ${!principalId.length && 'not-connected'}`}>
-        <div className="connection-dot" />
-        {
-          principalId.length ? shortPrincipal(principalId) : 'Not Connected'
-        }
-      </div>
+          <NavLink
+            className="nav-link"
+            to={{
+              pathname: "/leaderboard",
+            }}
+          >
+            Leaderboard
+          </NavLink>
+        )}
+        <div className={`principal-badge ${!principalId.length && 'not-connected'}`}>
+          <div className="connection-dot" />
+            {
+              principalId.length ? shortPrincipal(principalId) : 'Not Connected'
+            }
+          </div>
+        </div>
+      <a
+        className="gh-link"
+        href="https://github.com/Psychedelic/plug-coinflip"
+        target="_blank"
+        rel="noreferrer"
+      >
+        See on GitHub
+      </a>
     </div>
   );
 }

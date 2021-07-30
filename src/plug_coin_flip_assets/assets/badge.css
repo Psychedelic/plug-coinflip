@@ -5,8 +5,8 @@
   cursor: default;
   font-size: 20px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .connection-badge .not-connected {
@@ -35,4 +35,14 @@
   background: #4AFF67;
 }
 
+.connection-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
+.connection-badge .gh-link {
+  color: white;
+  text-decoration: none;
+  margin-top: 20px;
+}
