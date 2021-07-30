@@ -27,6 +27,37 @@ const aliases = Object.entries(dfxJson.canisters).reduce(
   {}
 );
 
+let localCanisters, prodCanisters, canisters;
+
+try {
+  localCanisters = require(path.resolve(".dfx", "local", "canister_ids.json"));
+} catch (error) {
+  console.log("No local canister_ids.json found. Continuing production");
+}
+
+function initCanisterIds() {
+  try {
+    prodCanisters = require(path.resolve("canister_ids.json"));
+  } catch (error) {
+    console.log("No production canister_ids.json found. Continuing with local");
+  }
+
+  const network =
+    process.env.DFX_NETWORK ||
+    (process.env.NODE_ENV === "production" ? "ic" : "local");
+
+  canisters = network === "local" ? localCanisters : prodCanisters;
+
+  let parsedCanisters = {};
+
+  for (const canister in canisters) {
+    parsedCanisters["process.env." + canister.toUpperCase() + "_CANISTER_ID"] =
+      JSON.stringify(canisters[canister][network]);
+  }
+
+  return parsedCanisters;
+}
+
 /**
  * Generate a webpack configuration for a canister.
  */
@@ -96,6 +127,9 @@ function generateWebpackConfigForCanister(name, info) {
         Buffer: [require.resolve('buffer/'), 'Buffer'],
         process: require.resolve('process/browser'),
       }),
+      new webpack.DefinePlugin(
+        initCanisterIds()
+      ),
     ],
   };
 }
@@ -109,3 +143,5 @@ module.exports = [
     })
     .filter((x) => !!x),
 ];
+
+
