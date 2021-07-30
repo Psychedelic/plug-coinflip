@@ -102,7 +102,7 @@ fn coin_flip(guess: bool) -> bool {
 }
 
 #[query]
-fn leaderboard() -> std::vec::Vec<Profile> {
+fn leaderboard() -> Vec<Profile> {
     let profile_store = storage::get::<ProfileStore>();
 
     let mut profiles_vec : Vec<Profile> = profile_store
