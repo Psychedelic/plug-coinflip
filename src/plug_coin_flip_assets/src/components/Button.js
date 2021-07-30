@@ -3,8 +3,12 @@ import clsx from 'clsx';
 import '../../assets/main.css';
 
 const Button = ({ value, onClick, disabled = false, border = true }) => {
+  const handleClick = () => {
+    if (!disabled) onClick();
+  }
+
   return (
-    <div className="button-container" onClick={onClick}>
+    <div className="button-container" onClick={handleClick}>
       { !disabled && (
         <div
           className={clsx(
@@ -18,7 +22,6 @@ const Button = ({ value, onClick, disabled = false, border = true }) => {
       )}
       <div
         className={clsx('button', disabled && 'button-disabled', border && 'button-border')}
-        onClick={onClick}
       >
         {value}
       </div>
