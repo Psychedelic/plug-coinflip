@@ -152,6 +152,39 @@ h1 {
   color: white;
 }
 
+.react-jinke-music-player-main {
+  display: none;
+}
+
+.volume-container {
+  color: white;
+  margin: 20px;
+  position: relative;
+}
+
+.volume-container img {
+  cursor: pointer;
+  height: 30px;
+  position: absolute;
+}
+
+.volume-container.playing .muted {
+  display: none;
+}
+
+.volume-container.playing .display {
+  display: block;
+}
+
+.volume-container.mute .muted {
+  display: block;
+}
+
+.volume-container.mute .playing {
+  display: none;
+}
+
+
 @keyframes glitch {
   0% {
     clip-path: var(--clip-one);

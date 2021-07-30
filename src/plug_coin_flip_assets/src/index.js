@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { render } from 'react-dom';
-
+import ReactJkMusicPlayer from 'react-jinke-music-player'
 import {
   HashRouter as Router,
   Switch,
@@ -8,8 +8,11 @@ import {
   Redirect,
 } from "react-router-dom";
 
+import synthwave from '../assets/synthwave.wav';
 import Background from '../assets/background.jpeg';
 import TitleImg from '../assets/title-image.png';
+import MutedIcon from '../assets/muted-icon.svg';
+import VolumeIcon from '../assets/volume-icon.svg';
 import '../assets/main.css';
 
 import ConnectionBadge from './components/ConnectionBadge';
@@ -17,14 +20,39 @@ import { ConnectionBadge, CoinSelector } from './components';
 import { Picker, Leaderboard, Result } from './views';
 
 const App = () => {
+  const [audioInstance, setAudioInstance] = useState();
   const [auth, setAuth] = useState(true);
+  const [audioPlaying, setAudioPlaying] = useState(false);
   const [principalId, setPrincipalId] = useState('');
   const [selectedCoin, setSelectedCoin] = useState('');
 
+  useEffect(() => {
+    if (!audioInstance) return;
+
+    if (audioPlaying) {
+      audioInstance.play();
+    } else {
+      audioInstance.pause();
+    }
+  }, [audioPlaying]);
+
   return (
     <div className='app'>
-      <img className='background' src={Background} />
-      <div className='content'>
+      <ReactJkMusicPlayer
+        getAudioInstance={(instance) => setAudioInstance(instance)}
+        audioLists={[{ musicSrc: synthwave }]}
+        defaultPlayMode="singleLoop"
+        preload
+      />
+      <div
+        onClick={() => { setAudioPlaying(!audioPlaying) }}
+        className={`volume-container ${audioPlaying ? 'playing' : 'mute'}`}
+      >
+        <img src={MutedIcon} className="muted" alt="mute" />
+        <img src={VolumeIcon} className="playing" alt="play" />
+      </div>
+      <img className="background" src={Background} />
+      <div className="content">
         <img className='title-image' src={TitleImg} />
         <Router>
           <ConnectionBadge principalId={principalId} />

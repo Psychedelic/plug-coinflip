@@ -80,6 +80,10 @@ function generateWebpackConfigForCanister(name, info) {
           test: /\.(woff|woff2|eot|ttf|otf)$/i,
           type: 'asset/resource',
         },
+        {
+          test: /\.(ogg|mp3|wav|mpe?g)$/i,
+          loader: 'file-loader',
+        }
       ]
     },
     plugins: [
