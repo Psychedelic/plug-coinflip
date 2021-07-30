@@ -27,10 +27,22 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.3.tgz#90420f9f9c6d3987f176a19a7d8e764271a2f55d"
   integrity sha512-Fxt+AfXgjMoin2maPIYzFZnQjAXjAL0PHscM5pRTtatFqB+vZxAM9tLp2Optnuw3QOQC40jTNeGYFOMvyf7v9g==
 
+"@psychedelic/plug-connect@0.1.2":
+  version "0.1.2"
+  resolved "https://npm.pkg.github.com/download/@psychedelic/plug-connect/0.1.2/d514327ef8f062f95a0c38dd3ddbcf53dc03141214233fb58ca46b95ebbd4ad9#1ecbf7d6308ad63ef38777a7c917beb55118698e"
+  integrity sha512-bmIZMbqwT+Fdz9637ZF4iSw1AWik2Hb8CIxpSeQ+eOOHS6KjQgF612LxiwMEJLj0vfEOFPpDIt/yN8VzNTVxzA==
+  dependencies:
+    "@stitches/react" "^0.2.3"
+
 "@react-icons/all-files@^4.1.0":
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@react-icons/all-files/-/all-files-4.1.0.tgz#477284873a0821928224b6fc84c62d2534d6650b"
   integrity sha512-hxBI2UOuVaI3O/BhQfhtb4kcGn9ft12RWAFVMUeNjqqhLsHvFtzIkFaptBJpFDANTKoDfdVoHTKZDlwKCACbMQ==
+
+"@stitches/react@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@stitches/react/-/react-0.2.3.tgz#b6c791783eb563bccf366ee75ab30dee2470393f"
+  integrity sha512-x8sho2hGD+G58RW/Di4xhd2K5IONLtzHbz3JFx3res6Tc1sWFJsfT+3qZgMVnAgPrFhjEkHkDyvNVVTp5M0BbQ==
 
 "@types/eslint-scope@^3.7.0":
   version "3.7.1"

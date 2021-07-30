@@ -10,6 +10,17 @@ body {
   margin: 0;
 }
 
+.app-container{
+  height: 100vh;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 h1 {
   font-size: 60px;
   line-height: 20px;
@@ -158,8 +169,9 @@ h1 {
 
 .volume-container {
   color: white;
-  margin: 20px;
-  position: relative;
+  position: absolute;
+  left: 16px;
+  top: 12px;
 }
 
 .volume-container img {
