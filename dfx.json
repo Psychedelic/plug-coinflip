@@ -1,8 +1,10 @@
 {
   "canisters": {
     "plug_coin_flip": {
-      "main": "src/plug_coin_flip/main.mo",
-      "type": "motoko"
+      "build": "cargo build --target wasm32-unknown-unknown --package plug_coin_flip --release",
+      "candid": "src/plug_coin_flip/src/plug_coin_flip.did",
+      "wasm": "target/wasm32-unknown-unknown/release/plug_coin_flip.wasm",
+      "type": "custom"
     },
     "plug_coin_flip_assets": {
       "dependencies": [
