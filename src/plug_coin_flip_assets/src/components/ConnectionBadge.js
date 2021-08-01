@@ -4,10 +4,7 @@ import {
   NavLink,
   useLocation,
 } from "react-router-dom";
-
-
 import shortPrincipal from '../utils/short-principal';
-
 import '../../assets/badge.css';
 
 const ConnectionBadge = ({ principalId }) => {

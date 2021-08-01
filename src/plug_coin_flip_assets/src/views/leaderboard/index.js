@@ -79,7 +79,7 @@ const DATA = [
 const Leaderboard = () => {
   return (
     <div className='leaderboard-container'>
-      <h1 className='leaderboard-title'>Leaderboard</h1>
+      <h1>Leaderboard</h1>
       <div className='row'>
         <div className='item header'>
           Rank

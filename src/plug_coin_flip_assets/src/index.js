@@ -17,14 +17,41 @@ import '../assets/main.css';
 
 import ConnectionBadge from './components/ConnectionBadge';
 import { ConnectionBadge, CoinSelector } from './components';
-import { Picker, Leaderboard, Result } from './views';
+import { Picker, Leaderboard, Result, Connect } from './views';
 
 const App = () => {
   const [audioInstance, setAudioInstance] = useState();
-  const [auth, setAuth] = useState(true);
+  const [connected, setConnected] = useState(false);
   const [audioPlaying, setAudioPlaying] = useState(false);
   const [principalId, setPrincipalId] = useState('');
   const [selectedCoin, setSelectedCoin] = useState('');
+
+  const handleConnect = () => {
+    console.log('should connect');
+    setConnected(true);
+  }
+
+  useEffect(async () => {
+
+    //if (window.ic?.plug) {
+    //  const connected = await window.ic.plug.isConnected();
+    //  setConnected(connected);
+    //}
+
+    if (!window.ic?.plug?.agent) {
+      window.location.hash = '/connect';
+    }
+  }, []);
+
+  useEffect(async () => {
+    if (connected) {
+      const principal = await window.ic.plug.agent.getPrincipal();
+
+      if (principal) {
+        setPrincipalId(principal.toText());
+      }
+    }
+  }, [connected]);
 
   useEffect(() => {
     if (!audioInstance) return;
@@ -56,9 +83,13 @@ const App = () => {
         <img className='title-image' src={TitleImg} />
         <Router>
           <ConnectionBadge principalId={principalId} />
-          {auth ? <Redirect to="/pick" /> : <Redirect to="/auth" />}
-          <Route path="/auth">
-            <h1>Connect to Start Playing</h1>
+          {
+            connected
+              ? <Redirect to="/pick" />
+              : <Redirect to="/connect" />
+          }
+          <Route path="/connect">
+            <Connect handleConnect={handleConnect} />
           </Route>
           <Route path="/leaderboard">
             <Leaderboard />
