@@ -11,10 +11,10 @@ const Coin = ({ status, glitched, delay, className, onClick }) => {
         <div className="coin delay heads glitched">
           <div className="blur" />
           <div className="face-heads">
-            HEAD
+            HEADS
           </div>
           <div className="face-tails">
-            TAIL
+            TAILS
           </div>
         </div>
         <div className="coin tails glitched">
@@ -23,16 +23,16 @@ const Coin = ({ status, glitched, delay, className, onClick }) => {
             HEAD
           </div>
           <div className="face-tails">
-            TAIL
+            TAILS
           </div>
         </div>
         <div className="coin loading">
           <div className="blur" />
           <div className="face-heads">
-            HEAD
+            HEADS
           </div>
           <div className="face-tails">
-            TAIL
+            TAILS
           </div>
         </div>
       </div>
@@ -48,20 +48,20 @@ const Coin = ({ status, glitched, delay, className, onClick }) => {
           <div className={`coin ${glitched} ${delay ? 'delay' : ''} ${glitched ? 'glitched' : ''}`}>
           <div className="blur" />
           <div className="face-heads">
-            HEAD
+            HEADS
           </div>
           <div className="face-tails">
-            TAIL
+            TAILS
           </div>
         </div>
       )}
       <div className={`coin ${status}`}>
         <div className="blur" />
         <div className="face-heads">
-          HEAD
+          HEADS
         </div>
         <div className="face-tails">
-          TAIL
+          TAILS
         </div>
       </div>
     </div>
