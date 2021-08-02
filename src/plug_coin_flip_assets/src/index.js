@@ -15,6 +15,9 @@ import MutedIcon from '../assets/muted-icon.svg';
 import VolumeIcon from '../assets/volume-icon.svg';
 import '../assets/main.css';
 
+
+import { idlFactory } from "../../declarations/plug_coin_flip";
+
 import { ConnectionBadge, CoinSelector } from './components';
 import { Picker, Leaderboard, Result, Connect } from './views';
 
@@ -24,21 +27,43 @@ const App = () => {
   const [audioPlaying, setAudioPlaying] = useState(false);
   const [principalId, setPrincipalId] = useState('');
   const [selectedCoin, setSelectedCoin] = useState('');
+  const [actor, setActor] = useState(false);
 
-  const handleConnect = () => {
-    console.log('should connect');
+  const handleConnect = async () => {
     setConnected(true);
+
+    if (!window.ic.plug.agent) {
+      const whitelist = [process.env.PLUG_COIN_FLIP_CANISTER_ID];
+      await window.ic?.plug?.createAgent(whitelist);
+    }
+
+    console.log(window.ic.plug.agent);
+
+    // Create an actor to interact with the NNS Canister
+    // we pass the NNS Canister id and the interface factory
+    const NNSUiActor = await window.ic.plug.createActor({
+      canisterId: process.env.PLUG_COIN_FLIP_CANISTER_ID,
+      interfaceFactory: idlFactory,
+    });
+
+    console.log(NNSUiActor);
+
+    const flip = await NNSUiActor.coinFlip([true]);
+    console.log('flip', flip);
+
+    const getSelf = await NNSUiActor.getSelf();
+    console.log('self', getSelf);
+    const plugL = await NNSUiActor.leaderboard();
+    console.log('plug lead', plugL);
+
+    //setActor(NNSUiActor);
   }
 
   useEffect(async () => {
-
-    //if (window.ic?.plug) {
-    //  const connected = await window.ic.plug.isConnected();
-    //  setConnected(connected);
-    //}
-
     if (!window.ic?.plug?.agent) {
       window.location.hash = '/connect';
+      setActor(false);
+      setConnected(false);
     }
   }, []);
 
@@ -95,6 +120,7 @@ const App = () => {
           </Route>
           <Route path="/pick">
             <Picker
+              actor={actor}
               selected={selectedCoin}
               setSelected={setSelectedCoin}
             />

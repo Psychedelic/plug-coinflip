@@ -2,7 +2,7 @@ import React from 'react';
 
 import { CoinSelector, Button } from '../../components';
 
-const Picker = ({ selected, setSelected }) => {
+const Picker = ({ actor, selected, setSelected }) => {
   const handlePlayAgain = () => window.location.hash = '/result';
 
   return (
