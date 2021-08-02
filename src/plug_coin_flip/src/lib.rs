@@ -30,8 +30,8 @@ fn get_rank() -> Option<usize> {
         .collect();
 
     profiles_vec.sort_by(|a, b| {
-        match b.ratio.cmp(&a.score) {
-            Ordering::Equal => b.score.cmp(&a.ratio),
+        match b.score.cmp(&a.score) {
+            Ordering::Equal => b.ratio.cmp(&a.ratio),
             other => other,
         }
     });
@@ -111,8 +111,8 @@ fn leaderboard() -> Vec<Profile> {
         .collect();
 
     profiles_vec.sort_by(|a, b| {
-        match b.ratio.cmp(&a.score) {
-            Ordering::Equal => b.score.cmp(&a.ratio),
+        match b.score.cmp(&a.score) {
+            Ordering::Equal => b.ratio.cmp(&a.ratio),
             other => other,
         }
     });

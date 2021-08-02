@@ -103,7 +103,7 @@ const App = () => {
             <Connect handleConnect={handleConnect} />
           </Route>
           <Route path="/leaderboard">
-            <Leaderboard actor={actor} setActor={setActor}/>
+            <Leaderboard actor={actor} setActor={setActor} principalId={principalId}/>
           </Route>
           <Route path="/pick">
             <Picker

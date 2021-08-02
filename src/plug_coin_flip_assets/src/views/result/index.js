@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
-import { COIN_TYPES } from '../../consts';
+import { COIN_TYPES, COIN_VALUE } from '../../consts';
 import { Coin, Button } from '../../components';
 
-const Result = ({ guess, setGuess }) => {
+const lostResultMap = {
+  [COIN_TYPES.HEADS]: COIN_TYPES.TAILS,
+  [COIN_TYPES.TAILS]: COIN_TYPES.HEADS,
+};
+
+const Result = ({ actor, guess, setGuess, setActor }) => {
   const [title, setTitle] = useState('Tossing quantum coin');
   const [result, setResult] = useState(COIN_TYPES.LOADING);
 
@@ -19,11 +24,21 @@ const Result = ({ guess, setGuess }) => {
     window.location.hash = '/leaderboard';
   }
 
-  useEffect(() => {
-    setTimeout(() => {
-      setResult(guess);
-      setTitle('You Lost :(');
-    }, 5000);
+  useEffect(async () => {
+    if (!window.ic?.plug?.agent) {
+      setActor(false);
+      setConnected(false);
+      window.location.hash = '/connect';
+    } else {
+      const guessValue = COIN_VALUE[guess];
+      const guessResult = await actor.coinFlip(guessValue);
+
+      const titleValue = guessResult ? 'You Won!' : 'You Lost :(';
+      const resultValue = guessResult ? guess : lostResultMap[guess];
+
+      setTitle(titleValue);
+      setResult(resultValue);
+    }
   }, []);
 
   return (
@@ -46,7 +61,6 @@ const Result = ({ guess, setGuess }) => {
           onClick={handleResults}
         />
       </div>
-
     </div>
   );
 }
