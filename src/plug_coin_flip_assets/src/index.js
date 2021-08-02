@@ -15,7 +15,6 @@ import MutedIcon from '../assets/muted-icon.svg';
 import VolumeIcon from '../assets/volume-icon.svg';
 import '../assets/main.css';
 
-
 import { idlFactory } from "../../declarations/plug_coin_flip";
 
 import { ConnectionBadge, CoinSelector } from './components';
@@ -44,22 +43,14 @@ const App = () => {
       interfaceFactory: idlFactory,
     });
 
-    const flip = await NNSUiActor.coinFlip([true]);
-    console.log('flip', flip);
-
-    const getSelf = await NNSUiActor.getSelf();
-    console.log('self', getSelf);
-    const plugL = await NNSUiActor.leaderboard();
-    console.log('plug lead', plugL);
-
-    //setActor(NNSUiActor);
+    setActor(NNSUiActor);
   }
 
   useEffect(async () => {
     if (!window.ic?.plug?.agent) {
-      window.location.hash = '/connect';
       setActor(false);
       setConnected(false);
+      window.location.hash = '/connect';
     }
   }, []);
 
@@ -112,19 +103,22 @@ const App = () => {
             <Connect handleConnect={handleConnect} />
           </Route>
           <Route path="/leaderboard">
-            <Leaderboard />
+            <Leaderboard actor={actor} setActor={setActor}/>
           </Route>
           <Route path="/pick">
             <Picker
               actor={actor}
               selected={selectedCoin}
               setSelected={setSelectedCoin}
+              setActor={setActor}
             />
           </Route>
           <Route path="/result">
             <Result
               guess={selectedCoin}
               setGuess={setSelectedCoin}
+              actor={actor}
+              setActor={actor}
             />
           </Route>
         </Router>
