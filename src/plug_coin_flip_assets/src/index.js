@@ -37,16 +37,12 @@ const App = () => {
       await window.ic?.plug?.createAgent(whitelist);
     }
 
-    console.log(window.ic.plug.agent);
-
     // Create an actor to interact with the NNS Canister
     // we pass the NNS Canister id and the interface factory
     const NNSUiActor = await window.ic.plug.createActor({
       canisterId: process.env.PLUG_COIN_FLIP_CANISTER_ID,
       interfaceFactory: idlFactory,
     });
-
-    console.log(NNSUiActor);
 
     const flip = await NNSUiActor.coinFlip([true]);
     console.log('flip', flip);
