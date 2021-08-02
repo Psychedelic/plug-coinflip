@@ -103,14 +103,18 @@ const App = () => {
             <Connect handleConnect={handleConnect} />
           </Route>
           <Route path="/leaderboard">
-            <Leaderboard actor={actor} setActor={setActor} principalId={principalId}/>
+            <Leaderboard
+              actor={actor}
+              setActor={setActor}
+              principalId={principalId}
+              setConnected={setConnected}
+            />
           </Route>
           <Route path="/pick">
             <Picker
               actor={actor}
               selected={selectedCoin}
               setSelected={setSelectedCoin}
-              setActor={setActor}
             />
           </Route>
           <Route path="/result">
@@ -119,6 +123,7 @@ const App = () => {
               setGuess={setSelectedCoin}
               actor={actor}
               setActor={actor}
+              setConnected={setConnected}
             />
           </Route>
         </Router>

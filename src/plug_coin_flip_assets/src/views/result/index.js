@@ -8,7 +8,7 @@ const lostResultMap = {
   [COIN_TYPES.TAILS]: COIN_TYPES.HEADS,
 };
 
-const Result = ({ actor, guess, setGuess, setActor }) => {
+const Result = ({ actor, guess, setGuess, setActor, setConnected }) => {
   const [title, setTitle] = useState('Tossing quantum coin');
   const [result, setResult] = useState(COIN_TYPES.LOADING);
 
