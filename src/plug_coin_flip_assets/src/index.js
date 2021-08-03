@@ -61,6 +61,8 @@ const App = () => {
       if (principal) {
         setPrincipalId(principal.toText());
       }
+    } else {
+      window.location.hash = '/connect';
     }
   }, [connected]);
 
