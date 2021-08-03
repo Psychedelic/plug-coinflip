@@ -1,6 +1,10 @@
-# plug_coin_flip
+![coinflip](https://storageapi.fleek.co/fleek-team-bucket/Dank/coinflip.png)
 
-Welcome to your new plug_coin_flip project and to the internet computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+# Coinflip - Plug App Example
+
+Welcome to the Coinflip! A sample app build to showcase the integration of Plug through the IC Provider API, to use Plug as an authentication provider in an Internet Computer application, and to make proxy canister requests signed with the user's identity in Plug.
+
+Want to learn more about this implementation and Plug? Visit our documentation. https://docs.plugwallet.ooo/
 
 To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
 
