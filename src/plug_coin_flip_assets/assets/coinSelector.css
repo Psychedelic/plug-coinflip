@@ -1,0 +1,30 @@
+.coin-selector {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.coin-selector .coin {
+  margin: 0 20px;
+}
+
+.coin-selector .coin-container {
+  cursor: pointer;
+}
+
+.coin-container {
+  transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+.coin-container.selected {
+  transform: translateY(-30px);
+}
+
+.coin-container.disabled {
+  opacity: 0.5;
+}
+
+.coin-container.disabled .glitched {
+  display: none;
+}

@@ -1,0 +1,48 @@
+.connection-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: default;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.connection-badge .not-connected {
+  background: rgba(255, 74, 74, 0.2);
+}
+
+.connection-badge .not-connected > .connection-dot {
+  background: #FF4A4A;
+}
+
+.principal-badge {
+  margin-left: 24px;
+  background: rgba(74, 255, 136, 0.2);
+  padding: 5px 12px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.principal-badge > .connection-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  margin-right: 7px;
+  background: #4AFF67;
+}
+
+.connection-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.connection-badge .gh-link {
+  color: white;
+  text-decoration: none;
+  margin-top: 20px;
+}

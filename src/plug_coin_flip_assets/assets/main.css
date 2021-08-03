@@ -1,34 +1,249 @@
+@font-face {
+  font-family: Iceland;
+  src: url('./Iceland.ttf');
+}
+
 body {
-    font-family: sans-serif;
-    font-size: 1.5rem;
+  background: #1D111B;
+  font-family: Iceland;
+  color: white;
+  margin: 0;
 }
 
-img {
-    max-width: 50vw;
-    max-height: 25vw;
-    display: block;
-    margin: auto;
-}
-section {
-    display: flex;
-    flex-flow: row wrap;
-    max-width: 40vw;
-    margin: auto;
-    align-items: baseline;
+.app-container{
+  height: 100vh;
 }
 
-#clickMeBtn {
-    padding: 5px 20px;
-    margin: 10px auto;
-    float: right;
+.app {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-#greeting {
-    margin: 10px auto;
-    padding: 10px 60px;
-    border: 1px solid #222;
+h1 {
+  font-size: 60px;
+  line-height: 20px;
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 75px;
 }
 
-#greeting:empty {
-    display: none;
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.title-image {
+  margin: 90px 0 50px 0;
+}
+
+.background {
+  position: fixed;
+  z-index: -1;
+  width: 100vw;
+  height: 90vh;
+  bottom: 0;
+}
+
+.button-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container .glitched {
+  opacity: 0;
+}
+
+.button-container:hover > .glitched {
+  opacity: 1;
+}
+
+.button {
+  height: 42px;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  transition: 1s opacity ease;
+}
+
+.button-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button-border {
+  border: 1.6px solid #FFFFFF;
+  padding: 0 18px;
+}
+
+.leaderboard-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.leaderboard-container > .row {
+  width: 100%;
+  display: flex;
+}
+
+.leaderboard-container > .row > .item {
+  width: 85px;
+  height: 35px;
+  border: 1px solid #FFFFFF;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  background: #1D111B;
+  margin: 5px 7px;
+}
+
+.leaderboard-container > .row > .header {
+  background: linear-gradient(180deg, #F103C6 0%, #5000BE 100%);
+  margin-bottom: 7px;
+  border: none;
+  padding: 1px;
+}
+
+.leaderboard-container > .row > .big {
+  width: 192px;
+}
+
+.purple {
+  background: #7201C0 !important;
+}
+
+.delay-2 {
+  animation-delay: 0.75s !important;
+}
+
+.picker .button {
+  width: fit-content;
+  margin: 60px auto 0;
+}
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result-container .button-container {
+  margin-top: 25px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-link:visited {
+  color: white;
+}
+
+.react-jinke-music-player-main {
+  display: none;
+}
+
+.volume-container {
+  color: white;
+  position: absolute;
+  left: 16px;
+  top: 12px;
+}
+
+.volume-container img {
+  cursor: pointer;
+  height: 30px;
+  position: absolute;
+}
+
+.volume-container.playing .muted {
+  display: none;
+}
+
+.volume-container.playing .display {
+  display: block;
+}
+
+.volume-container.mute .muted {
+  display: block;
+}
+
+.volume-container.mute .playing {
+  display: none;
+}
+
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--clip-one);
+  }
+  2%, 8% {
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+  6% {
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  9% {
+    clip-path: var(--clip-two);
+    transform: translate(0, 0);
+  }
+  10% {
+    clip-path: var(--clip-three);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  13% {
+    clip-path: var(--clip-three);
+    transform: translate(0, 0);
+  }
+  14%, 21% {
+    clip-path: var(--clip-four);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  25% {
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  30% {
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+  35%, 45% {
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * -1%));
+  }
+  40% {
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * 1%));
+  }
+  50% {
+    clip-path: var(--clip-six);
+    transform: translate(0, 0);
+  }
+  55% {
+    clip-path: var(--clip-seven);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  60% {
+    clip-path: var(--clip-seven);
+    transform: translate(0, 0);
+  }
+  31%, 61%, 100% {
+    clip-path: var(--clip-four);
+  }
 }
